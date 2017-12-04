@@ -15,5 +15,12 @@
   "bugs": {
     "url": "https://github.com/vicflamenco/webchat/issues"
   },
-  "homepage": "https://github.com/vicflamenco/webchat#readme"
+  "homepage": "https://github.com/vicflamenco/webchat#readme",
+  "dependencies": {
+    "express": "^4.16.2",
+    "socket.io": "^2.0.4"
+  },
+  "devDependencies": {
+    "nodemon": "^1.12.1"
+  }
 }
