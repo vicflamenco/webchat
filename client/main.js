@@ -11,11 +11,30 @@ function renderMessages(messages) {
     var html = messages.map(function(item, index){
         return (`
             <div class="message">
-                <strong>${item.nickname}</strong>:
-                <p>${item.text}</p>
+                <p>
+                    <strong>${item.nickname}</strong>:
+                </p>
+                <p>${item.message}</p>
             </div>
         `)
     }).join(" ");
 
-    document.getElementById('messages').innerHTML = html;
-};
+    var div_msgs = document.getElementById('messages');
+    div_msgs.innerHTML = html;
+    div_msgs.scrollTop = div_msgs.scrollHeight;
+}
+
+function addMessage(event) {
+
+    var nicknameInput = document.getElementById('nickname');
+    var messageInput = document.getElementById('message');
+
+    var message = {
+        nickname: nicknameInput.value,
+        message: messageInput.value
+    };
+    nicknameInput.style.display = 'none';
+    messageInput.value = '';
+    socket.emit('add-message', message);
+    return false;
+} 
