@@ -21,6 +21,7 @@ io.on('connection', function(socket){
 
     socket.on('add-message', function (data) {
         messages.push(data);
+        console.log('New message from ' + socket.handshake.address);
         io.sockets.emit('messages', messages);
     });
 

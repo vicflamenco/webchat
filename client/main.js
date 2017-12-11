@@ -1,9 +1,6 @@
-//var socket = io();
-
 var socket = io.connect("http://localhost:8080");
 
 socket.on('messages', function(data){
-    console.log(data);
     renderMessages(data);
 });
 
@@ -12,9 +9,13 @@ function renderMessages(messages) {
         return (`
             <div class="message">
                 <p>
-                    <strong>${item.nickname}</strong>:
+                    <strong>
+                        ${item.nickname}
+                    </strong>:
                 </p>
-                <p>${item.message}</p>
+                <p>
+                    ${item.message}
+                </p>
             </div>
         `)
     }).join(" ");
