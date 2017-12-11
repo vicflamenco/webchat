@@ -1,0 +1,26 @@
+body {
+    height: 100;
+}
+
+#messages {
+    width: 95%;
+    height: 350px;
+    min-width: 250px;
+    overflow-y: scroll;
+    border: 1px solid #eee;
+}
+
+.message {
+
+    margin: 10px;
+    padding: 5px;
+    border-radius: 3px;
+    min-width: 200px;
+    border: 1px solid #ccc;
+    background: white;
+    
+}
+
+.message > p {
+    margin: 0;
+}
