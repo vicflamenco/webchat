@@ -1,11 +1,11 @@
-var socket = io.connect("http://localhost:8080");
+var socket = io.connect(location.origin);
 
-socket.on('messages', function(data){
+socket.on('messages', function(data) {
     renderMessages(data);
 });
 
 function renderMessages(messages) {
-    var html = messages.map(function(item, index){
+    var html = messages.map(function(item, index) {
         return (`
             <div class="message">
                 <p>
@@ -38,4 +38,4 @@ function addMessage(event) {
     messageInput.value = '';
     socket.emit('add-message', message);
     return false;
-} 
+}

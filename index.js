@@ -1,4 +1,5 @@
-const port = 8080;
+const PORT = 3000;
+
 var messages = [
     { id: 1, nickname: 'Bot', message: 'Welcome to chat' }
 ];
@@ -13,8 +14,8 @@ app.get('/', (req, res) => {
     res.sendFile(__dirname + '/public/index.html');
 });
 
-httpServer.listen(port, () => {
-    console.log('Server listening port:' + port.toString() + '/');
+httpServer.listen(PORT, () => {
+    console.log('Server listening port:' + PORT.toString() + '/');
 });
 
 var io = require('socket.io')(httpServer);
