@@ -12,19 +12,23 @@
 
 <body>
     <div class="container">
-        <h1>WebChat by vicflamenco</h1>
 
         <div class="row">
-            <div class="col-6 col-md-8 col-sm-12">
+            <div class="col-12">
+                <h1>WebChat by vicflamenco</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
                 <div id="messages"></div>
             </div>
         </div>
         <div class="row">
-            <div class="col-6 col-md-8 col-sm-12">
+            <div class="col-12">
                 <form onsubmit="return addMessage(this);">
-                    <input id="nickname" placeholder="Username" />
-                    <input id="message" placeholder="Message"></input>
-                    <input type="submit" value="Send" />
+                    <input id="nickname" placeholder="Username" class="form-control" />
+                    <input id="message" placeholder="Message" class="form-control"></input>
+                    <input type="submit" value="Send" class="btn btn-primary" />
                 </form>
             </div>
         </div>

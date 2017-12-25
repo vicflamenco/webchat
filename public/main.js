@@ -1,4 +1,7 @@
 var socket = io.connect(location.origin);
+var messageInput = document.getElementById('message');
+var nicknameInput = document.getElementById('nickname');
+var nickname = '';
 
 socket.on('messages', function(data) {
     renderMessages(data);
@@ -9,9 +12,7 @@ function renderMessages(messages) {
         return (`
             <div class="message">
                 <p>
-                    <strong>
-                        ${item.nickname}
-                    </strong>:
+                    <strong>${item.nickname}</strong>:
                 </p>
                 <p>
                     ${item.message}
@@ -23,19 +24,21 @@ function renderMessages(messages) {
     var div_msgs = document.getElementById('messages');
     div_msgs.innerHTML = html;
     div_msgs.scrollTop = div_msgs.scrollHeight;
+    messageInput.focus();
 }
 
 function addMessage(event) {
 
-    var nicknameInput = document.getElementById('nickname');
-    var messageInput = document.getElementById('message');
+    if (messageInput.value == '')
+        return false;
 
-    var message = {
-        nickname: nicknameInput.value,
+    nickname = nickname != '' ? nickname : nicknameInput.value;
+    socket.emit('add-message', {
+        nickname: nickname,
         message: messageInput.value
-    };
+    });
     nicknameInput.style.display = 'none';
     messageInput.value = '';
-    socket.emit('add-message', message);
+
     return false;
 }
